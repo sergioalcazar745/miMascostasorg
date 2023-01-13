@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<div id="consejos">
+    <div class="titulo-detalle">
+        <div class="container">
+            <h1 class="">CONSEJOS</h1>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="busqueda-general my-5 w-50 d-block m-auto">
+            <form action="{% url 'consejos' %}" method="POST" class="text-center">
+                {% csrf_token %}
+                <label for="buscar" class="form-label">BÚSQUEDA</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Buscar consejo" aria-label="Buscar consejos"
+                        aria-describedby="button-addon2" id="buscar" name="buscar">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+                </div>
+            </form>
+        </div>
+        {% if resultado > 0 %}
+            <p class="lead">{{resultado}} resultados {% if buscar != None %}"{{buscar}}"{% endif %}</p>
+        {% endif %}
+        {% if items|length > 0 %}
+            <div class="d-flex">
+                <div class="noticias w-100">
+                    {% for con in items %}
+                    <div class="card-servicios border-bottom mb-3 pb-5">
+                        <div class="post-imagen">
+                            <img style="max-width: 837; max-height: 435.23;" src="/media/{{con.imagen}}"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="post-titulo mt-4 mb-2">
+                            <h3>{{con.titulo|upper}}</h3>
+                        </div>
+                        <div class="post-contenido">
+                            {{con.subtitulo}}
+                        </div>
+                        <div class="post-pie mt-4">
+                            <a href="{% url 'detalle-consejo' con.id %}" class="btn btn-custom-outline">MÁS
+                                DETALLES</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% else %}
+            <div class="container text-center my-5 py-5">
+                <h1>NO HAY CONSEJOS</h1>
+            </div>
+        {% endif %}
+        {% include 'paginacion.html' %}
+        {% if volver == 'true' %}
+            <a href="{% url 'consejos' %}" class="btn btn-custom-secondary mb-2">Volver</a>
+        {% endif %}
+    </div>
+</div>
+{%endblock%}

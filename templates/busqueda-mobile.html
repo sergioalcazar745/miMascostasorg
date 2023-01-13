@@ -1,0 +1,11 @@
+<div class="busqueda-mobile text-center d-none my-5">
+    <form action="{% url 'tipo-servicio' tipo %}" method="POST">
+        {% csrf_token %}
+        <label for="buscar" class="form-label">BÚSQUEDA</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar noticia" aria-label="Buscar noticia"
+                aria-describedby="button-addon2" id="buscar" name="buscar">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+</div>

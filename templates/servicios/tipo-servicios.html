@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<div id="tipo-servicios">
+    <div class="titulo-detalle">
+        <div class="container">
+            <h1 class="text-left">{{tipo|upper}}</h1>
+        </div>
+    </div>
+    <div class="container mt-5">
+        {% if items|length > 0 %}
+            {% include 'busqueda-mobile.html' %}
+        {% endif %}
+        {% include 'menu-mobile.html' %}
+        {% if resultado > 0 %}
+            <p class="lead">{{resultado}} resultados {% if buscar != None %}"{{buscar}}"{% endif %}</p>
+        {% endif %}
+        {% if items|length > 0 %}
+            <div class="d-flex">
+                <div class="noticias w-75">
+                    {% for noti in items %}
+                    <div class="card-servicios border-bottom mb-3 pb-5">
+                        <div class="post-imagen">
+                            <img style="max-width: 837; max-height: 435.23;" src="/media/{{noti.imagen}}"
+                                class="card-img-top" alt="...">
+                        </div>
+                        <div class="post-titulo mt-4 mb-2">
+                            <h3>{{noti.titulo|upper}}</h3>
+                        </div>
+                        <div class="post-contenido">
+                            {{noti.subtitulo}}
+                        </div>
+                        <div class="post-pie mt-4">
+                            <a href="{% url 'detalle-servicio' tipo noti.id %}" class="btn btn-custom-outline">MÁS
+                                DETALLES</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% include 'busqueda.html' %}
+            </div>
+        {% else %}
+            <div class="container text-center py-5">
+                <h1 class="my-5 py-5">NO HAY NOTICIAS</h1>           
+            </div>
+        {% endif %}
+        {% include 'paginacion.html' %}
+    </div>
+</div>
+{%endblock%}

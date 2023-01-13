@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<section id="home">
+    <div class="titular">
+        <div class="titulo">
+            <h1>MiMascotas</h1>
+        </div>
+        <hr>
+        <div class="subtitulo">
+            <p class="lead">Tu lugar de confianza para tus mascotas</p>
+        </div>
+    </div>
+    <div>
+    </div>
+</section>
+<section id="bienvenidos" class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img style="max-width: 100%;" src="{% static 'img/bienvenidos.jpg' %}" alt="Bienvenidos"
+                    class="img-fluid rounded">
+            </div>
+            <div class="col-12 col-md-6 text-center texto">
+                <h1>BIENVENIDOS</h1>
+                <h5 class="text-muted">ESTAMOS PARA TI</h5>
+                <p class="pt-3 pb-4">Bienvenidos a nuestra Web donde encontrar todo para el bienestar de tus amigos, y los nuestros.</p>
+                <a class="btn btn-custom mb-2 mb-lg-0" href="https://sergioalcazarweb.es/">Foro <i
+                        class="bi bi-arrow-bar-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="descubre">
+    <div class="container py-5">
+        <h1 class="pt-5">DESCÚBRENOS</h1>
+        <h5 class="text-muted">ENTRA Y DESCUBRE</h5>
+        <p class="w-50 pb-4">Aquí encontraras, consejos y ayuda para ti y tú gran amigo, en asuntos legales, salud,
+            complementos, alimentación, cuidado y todo lo que se te ocurra y necesites, sin descuidar como
+            relacionarte con ellos y ellos contigo.</p>
+    </div>
+</section>
+<section id="nuestros-servicios">
+    <div class="container py-5">
+        <h1 class="text-center pb-5 mb-4 pt-2">NUESTROS SERVICIOS</h1>
+        <div class="row text-center">
+            <div class="col-12 col-sm-6 col-lg-3">
+                <img src="{% static 'img/icons/veterinario.png' %}" alt="Icon-veterinaria">
+                <p class="text-center">Veterinaria</p>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <img src="{% static 'img/icons/legal.png' %}" alt="Icon-veterinaria">
+                <p class="text-center">Legal</p>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <img src="{% static 'img/icons/alimentacion.png' %}" alt="Icon-veterinaria">
+                <p class="text-center">Alimentacion</p>
+            </div>
+            <div class="col-12 col-sm-6 col-lg-3">
+                <img src="{% static 'img/icons/tienda.png' %}" alt="Icon-veterinaria">
+                <p class="text-center">Tienda</p>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

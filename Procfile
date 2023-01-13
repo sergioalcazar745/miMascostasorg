@@ -1,0 +1,1 @@
+web: gunicorn miMascostasorg.wsgi --log-file -

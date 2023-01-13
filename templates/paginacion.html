@@ -1,0 +1,33 @@
+{% if items.paginator.num_pages > 1 %}
+    <div class="row{% if nbar == 'consejos' %} w-100 {% else %} w-75 {% endif %}" id="paginacion">
+        <nav class="bg-transparent d-flex justify-content-center flex-wrap">
+            <ul class="pagination">
+                {% if items.has_previous %}
+                    <!-- <li class="page-item">
+                        <a class="page-link" href="?page=1">Primera</a>
+                    </li> -->
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{items.previous_page_number}}">&laquo;</a>
+                    </li>
+                {% endif %}
+
+                {% for pagina in paginas %}
+                {{page_actual}}
+                {{page}}
+                    <li class="page-item{% if pagina_actual == pagina %} active{% endif %}">
+                        <a href="?page={{pagina}}" class="page-link">{{pagina}}</a>
+                    </li>
+                {% endfor %}
+
+                {% if items.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{items.next.num_pages}}">&raquo;</a>
+                    </li>
+                    <!-- <li class="page-item">
+                        <a class="page-link" href="?page={{items.paginator.num_pages}}">Última</a>
+                    </li> -->
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+{% endif %}

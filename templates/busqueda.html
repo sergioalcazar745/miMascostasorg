@@ -1,0 +1,22 @@
+<div class="busqueda">
+    <form action="{% url 'tipo-servicio' tipo %}" method="POST" class="text-center">
+        {% csrf_token %}
+        <label for="buscar" class="form-label text-center">BÚSQUEDA</label>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Buscar noticia" aria-label="Buscar noticia"
+                aria-describedby="button-addon2" id="buscar" name="buscar">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
+        </div>
+    </form>
+    <div class="lista text-left">
+        <h4 class="text-center mt-5 mb-3">OTROS SERVICIOS</h4>
+        <ul>
+            {% for lis in lista %}
+            <li class="rounded border-bottom"><a href="{% url 'tipo-servicio' lis %}">{{lis}}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+     {% if volver == 'true' %}
+    <a href="{% url 'tipo-servicio' tipo %}" class="btn btn-custom-secondary">Volver</a>
+    {% endif %}
+</div>

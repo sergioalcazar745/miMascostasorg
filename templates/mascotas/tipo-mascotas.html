@@ -1,0 +1,56 @@
+{% extends 'base.html' %} {% load static %} {% block contenido %}
+<div id="tipo-mascota">
+  <div class="titulo-detalle">
+    <div class="container">
+      <h1 class="text-left">{{tipo|upper}}</h1>
+    </div>
+  </div>
+  <div class="container">
+    <div class="busqueda-general my-5 w-50 d-block m-auto">
+      <form action="" method="POST" class="">
+        <!-- {% csrf_token %} -->
+        <label for="buscar" class="form-label">BÚSQUEDA</label>
+        <div class="input-group mb-3">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Buscar mascota"
+            id="buscar"
+            name="buscar"
+            onkeyup="onclickLetter(this)"
+          />
+          <div class="border rounded" id="sugerencias">
+            <ul id="listaSugerencias"></ul>
+          </div>
+        </div>
+        <label for="buscar" class="form-label" style="display: block"
+          >RAZA</label
+        >
+        <select
+          style="display: inline-block"
+          class="form-select w-50"
+          aria-label="Default select example"
+          id="select"
+        ></select>
+        <a
+          class="btn btn-custom-secondary"
+          onclick="changeRaza(this)"
+          id="filtrar"
+          >Filtrar</a
+        >
+      </form>
+    </div>
+    <h3 class="w-100 border-bottom pb-3" id="tipo">GRANDE</h3>
+    <div id="contenedorMascotas" class="row">
+      <div class="spinner-border m-5" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mb-3">
+      <a href="{% url 'mascotas' %}" class="btn btn-custom-secondary">Volver</a>
+    </div>
+  </div>
+</div>
+{%endblock%} {% block extrajs %}
+<script src="{% static 'js/mascotas.js' %}"></script>
+{% endblock %}

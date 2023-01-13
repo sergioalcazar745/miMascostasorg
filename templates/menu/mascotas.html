@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div id="mascotas">  
+    <div class="titulo-detalle">
+        <div class="container">
+            <h1 class="text-center">MASCOTAS</h1>
+        </div>
+    </div>  
+    <div class="container">       
+        <div class="row">            
+            <div class="col-12 my-5">
+                <a href="{% url 'tipo-mascotas' 'perros' %}" class="card perro d-flex justify-content-center align-items-center">
+                    <h4>Perros</h4> 
+                </a>
+                <a href="{% url 'tipo-mascotas' 'gatos'%}" class="card gato d-flex justify-content-center align-items-center">
+                    <h4>Gatos</h4> 
+                </a>
+                <a href="{% url 'tipo-mascotas' 'caballos'%}" class="card caballo d-flex justify-content-center align-items-center">
+                    <h4>Caballos</h4>
+                </a>
+                <a href="{% url 'tipo-mascotas' 'pajaros'%}" class="card pajaro d-flex justify-content-center align-items-center">
+                    <h4>Pajaros</h4>
+                </a>
+                <a href="{% url 'tipo-mascotas' 'peces'%}" class="card peces d-flex justify-content-center align-items-center">
+                    <h4>Peces</h4>
+                </a>
+            </div>
+        </div>
+    </div>   
+</div>
+{%endblock%}

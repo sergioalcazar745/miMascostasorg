@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div id="detalleServicios" class="mb-5">
+    <div class="titulo-detalle">
+        <div class="container">
+            <h1 class="">{{noticia.titulo|upper}}</h1>
+        </div>
+    </div>
+    <div class="container mt-5">
+        {% include 'busqueda-mobile.html' %}
+        {% include 'menu-mobile.html' %}
+        <div class="d-flex">
+            <div class="detalle-noticia w-75">
+                <div class="detalle-imagen">
+                    <img src="/media/{{noticia.imagen}}" class="img-fluid" alt="" width="95%" height="435.23">
+                </div>
+                <div class="detalle-subtitulo mt-3">
+                    <p class="fw-bold mb-5">{{noticia.subtitulo}}</p>
+                </div>
+                <div class="detalle-time">
+                    <p class="text-muted text-end border-bottom" style="margin-right: 5%;">{{noticia.time}}</p>
+                </div>
+                <div class="detalle-contenido mt-4" style="margin-right: 5%;">
+                    {{noticia.detalle|safe}}
+                    {% if noticia.bibliografia %}
+                    <h3 class="my-5">BIBLIOGRAFÍA</h3>
+                    <div class="d-flex flex-wrap">
+                        <a href="{{noticia.bibliografia}}" target="_blank" class="pb-5">Enlace de la noticia</a>
+                    </div>                    
+                    {% endif %}
+                </div>
+            </div>
+            {% include 'busqueda.html' %}
+        </div>
+        <div class="volver-detalle-servicio d-none">
+            {% if volver == 'true' %}
+            <a href="{% url 'tipo-servicio' tipo %}" class="btn btn-custom-secondary">Volver</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{%endblock%}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block contenido %}
+<div id="servicios" class="">
+    <h1 class="mb-5">SERVICIOS</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url 'tipo-servicio' 'Legales' %}" class="card legales d-flex justify-content-center align-items-center">
+                    <h4>Legales</h4> 
+                </a>
+                <a href="{% url 'tipo-servicio' 'Sanitarios' %}" class="card sanitarios d-flex justify-content-center align-items-center">
+                    <h4>Sanitarios</h4>
+                </a>
+                <a href="{% url 'tipo-servicio' 'Alimentacion' %}" class="card alimentacion d-flex justify-content-center align-items-center">
+                    <h4>Alimentación</h4>
+                </a>
+                <a href="{% url 'tipo-servicio' 'Alojamiento' %}" class="card alojamiento d-flex justify-content-center align-items-center">
+                    <h4>Alojamiento</h4>
+                </a>
+                <a href="{% url 'tipo-servicio' 'Entrenamiento' %}" class="card entrenamiento d-flex justify-content-center align-items-center">
+                    <h4>Entrenamiento</h4>
+                </a>
+                <a href="{% url 'tipo-servicio' 'Otros' %}" class="card otros d-flex justify-content-center align-items-center mb-5">
+                    <h4>Otros</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
